@@ -589,7 +589,9 @@
       text-transform: uppercase;
       transition: color 0.3s;
     }
+    .footer-socials a { display: flex; align-items: center; gap: 6px; }
     .footer-socials a:hover { color: var(--green-bright); }
+    .social-icon { width: 14px; height: 14px; flex-shrink: 0; }
 
     /* ANIMATIONS */
     @keyframes fadeUp {

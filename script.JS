@@ -47,7 +47,7 @@
         }
       });
     }, { threshold: 0.3 });
-    document.querySelector('.skills-list') && skillObserver.observe(document.querySelector('.skills-list'));
+    document.querySelectorAll('.skills-list').forEach(el => skillObserver.observe(el));
 
     // Filter
     function filterProjects(cat, btn) {
@@ -118,14 +118,22 @@
 
     // Project modal
     document.querySelectorAll('.project-card').forEach(card => {
-      card.addEventListener('click', () => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.card-link')) return;
         const title = card.querySelector('.card-title').textContent;
         const desc = card.querySelector('.card-desc').textContent;
         const videoSrc = card.dataset.video;
         const imageSrc = card.querySelector('.card-visual').src;
 
+        const linkHref = card.querySelector('.card-link')?.href || '#';
+        const tag = card.querySelector('.card-tag')?.textContent || '';
+
         document.getElementById('modalTitle').textContent = title;
         document.getElementById('modalDesc').textContent = desc;
+        document.getElementById('modalTag').textContent = tag;
+        const modalLink = document.getElementById('modalLink');
+        modalLink.href = linkHref;
+        modalLink.style.display = (linkHref && linkHref !== window.location.href && !linkHref.endsWith('#')) ? '' : 'none';
 
         const videoContainer = document.getElementById('modalVideoContainer');
         const imageContainer = document.getElementById('modalImageContainer');

@@ -55,8 +55,9 @@
       <div class="section-label">About</div>
       <h2 class="about-heading">Design without technical limitations.</h2>
       <p class="about-text">
-        I'm a creative developer that loves to build immersive player-driven experiences, 
-        also focused on building immersive worlds that blend narrative, visuals, and interactive mechanics.
+        I'm a creative developer with an eye for detail and a drive to push boundaries.
+        I love building immersive, player-driven experiences and worlds that blend narrative, visuals, and interactive mechanics.
+        I believe in thinking through the logic of every problem before diving in to craft visuals that steal the show, make it exist, and then make it pretty.
       </p>
     </div>
     <div class="about-stats reveal">
@@ -65,7 +66,7 @@
         <div class="stat-label">Years Experience</div>
       </div>
       <div class="stat">
-        <div class="stat-number">09</div>
+        <div class="stat-number">12</div>
         <div class="stat-label">Projects To Show And More To Come</div>
       </div>
       <div class="stat">
@@ -91,13 +92,12 @@
         <button class="filter-tab" onclick="filterProjects('game', this)">Games</button>
         <button class="filter-tab" onclick="filterProjects('3d', this)">3D</button>
         <button class="filter-tab" onclick="filterProjects('engine', this)">Engines</button>
-        <button class="filter-tab" onclick="filterProjects('env', this)">Environments</button>
       </div>
     </div>
 
     <div class="portfolio-grid" id="portfolioGrid">
 
-      <div class="project-card" data-category="game" data-video="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" data-tag="Environment · Game">
+      <div class="project-card" data-category="game" data-video="Videos/LostMemories.mp4" data-tag="Environment · Game">
         <div class="card-inner">
           <img class="card-visual" src="Images/LostMemories.png" alt="Screenshot of Lost Memories game environment" loading="lazy">
           <div class="card-overlay">
@@ -144,6 +144,18 @@
           </div>
         </div>
       </div>
+      
+      <div class="project-card" data-category="game" data-video="Videos/VentVideo.mp4" data-tag="Game">
+        <div class="card-inner">
+          <img class="card-visual" src="Images/VenPic.jpg" alt="Screenshot of Vent Maintenance game environment" loading="lazy">
+          <div class="card-overlay">
+            <div class="card-tag">Game</div>
+            <div class="card-title">Vent Maintenance</div>
+            <div class="card-desc">Play as Michael, a maintenance worker, as you navigate the eerie corridors of a malfunctioning space station. Discover the truth behind your companies practices.</div>
+            <a href="#" class="card-link">View Project →</a>
+          </div>
+        </div>
+      </div>
 
       <div class="project-card" data-category="3d" data-tag="Asset">
         <div class="card-inner">
@@ -157,30 +169,81 @@
         </div>
       </div>
 
-      <div class="project-card" data-category="game"  data-tag="Game">
+      <div class="project-card" data-category="engine" data-tag="Engine · 3D">
+        <div class="card-inner">
+          <img class="card-visual" src="Images/RayTracing.png" alt="Screenshot of Ray Tracing implementation" loading="lazy">
+          <div class="card-overlay">
+            <div class="card-tag">Engine · 3D</div>
+            <div class="card-title">Software Render & Ray Tracer</div>
+            <div class="card-desc">Implementation of real-time ray tracing engine, delivering photorealistic lighting and reflections.</div>
+            <a href="https://github.com/Shojine/CSC350" class="card-link">View Project →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="game" data-tag="Game · Environment">
+        <div class="card-inner">
+          <img class="card-visual" src="Images/OutOfReach.png" alt="Screenshot of Out Of Reach game environment" loading="lazy">
+          <div class="card-overlay">
+            <div class="card-tag">Game · Environment</div>
+            <div class="card-title">Out Of Reach</div>
+            <div class="card-desc">Parkour your way though the level to reach the end thats always just out of reach. Team project.</div>
+            <a href="https://github.com/SmartDude18/OutOfReach" class="card-link">View Project →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="game" data-tag="Game">
+        <div class="card-inner">
+          <img class="card-visual" src="Images/Stacker.png" alt="Screenshot of Stacker game environment" loading="lazy">
+          <div class="card-overlay">
+            <div class="card-tag">Game</div>
+            <div class="card-title">Stacker</div>
+            <div class="card-desc">Play this simple little stacking game, stack to gain points, and avoid toppling your tower.</div>
+            <a href="https://github.com/Shojine/Stacker" class="card-link">View Project →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="engine" data-tag="Engine · Physics">
+        <div class="card-inner">
+          <img class="card-visual" src="Images/Raylib.png" alt="Screenshot of Raylib Physics Engine" loading="lazy">
+          <div class="card-overlay">
+            <div class="card-tag">Engine · Physics</div>
+            <div class="card-title">Raylib Physics Engine</div>
+            <div class="card-desc">Implementation of raylib 2D physics based engine/simulation</div>
+            <a href="https://github.com/Shojine/GAT315-Physics" class="card-link">View Project →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="game" data-video="Videos/GrannyEyes.mp4" data-tag="Game">
+        <div class="card-inner">
+          <img class="card-visual" src="Images/GrannyEyes.png" alt="Screenshot of Granny Eyes game environment" loading="lazy">
+          <div class="card-overlay">
+            <div class="card-tag">Game</div>
+            <div class="card-title">Granny Eyes</div>
+            <div class="card-desc">Open Source project upscaled and enhanced. Working within an existing code base</div>
+            <a href="https://github.com/Shojine/Granny-Unity-3D-Mobile" class="card-link">View Project →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="game" data-tag="Game">
         <div class="card-inner">
           <img class="card-visual" src="Images/Insomnia.png" alt="Screenshot of Insomnia game environment" loading="lazy">
           <div class="card-overlay">
             <div class="card-tag">Game</div>
             <div class="card-title">Insomnia</div>
             <div class="card-desc">Awake in your house to find all doors locked. Find your way out, before you find out what broke in.</div>
-            <a href="#" class="card-link">View Project →</a>
+            <a href="https://github.com/Shojine/GAT315-Unity-Physics" class="card-link">View Project →</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-category="game" data-video="Videos/VentVideo.mp4" data-tag="Game">
-        <div class="card-inner">
-          <img class="card-visual" src="Images/VenPic.jpg" alt="Screenshot of Vent Maintenance game environment" loading="lazy">
-          <div class="card-overlay">
-            <div class="card-tag">Game</div>
-            <div class="card-title">Vent Maintenance</div>
-            <div class="card-desc">Play as Michael, a maintenance worker, as you navigate the eerie corridors of a malfunctioning space station. Discover the truth behind your companies practices.</div>
-            <a href="#" class="card-link">View Project →</a>
-          </div>
-        </div>
-      </div>
-    
+
+
+
     </div>
   </section>
 
@@ -202,24 +265,63 @@
         <div class="skill-pct">88%</div>
       </div>
       <div class="skill-item">
-        <div class="skill-name">UI / UX Design</div>
+        <div class="skill-name">Unity</div>
         <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85" style="width:0%"></div></div>
         <div class="skill-pct">85%</div>
       </div>
       <div class="skill-item">
-        <div class="skill-name">Animation / Rigging</div>
+        <div class="skill-name">UI / UX Design</div>
         <div class="skill-bar-track"><div class="skill-bar-fill" data-width="78" style="width:0%"></div></div>
         <div class="skill-pct">78%</div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-name">Substance Painter</div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82" style="width:0%"></div></div>
-        <div class="skill-pct">82%</div>
       </div>
       <div class="skill-item">
         <div class="skill-name">Frontend Development</div>
         <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75" style="width:0%"></div></div>
         <div class="skill-pct">75%</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">Krita</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="52" style="width:0%"></div></div>
+        <div class="skill-pct">52%</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills" id="languages">
+    <div class="reveal">
+      <div class="section-label">Expertise</div>
+      <h2 class="skills-heading">Languages</h2>
+    </div>
+    <div class="skills-list reveal">
+      <div class="skill-item">
+        <div class="skill-name">C#</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95" style="width:0%"></div></div>
+        <div class="skill-pct">95%</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">Blueprint</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90" style="width:0%"></div></div>
+        <div class="skill-pct">90%</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">C++</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75" style="width:0%"></div></div>
+        <div class="skill-pct">75%</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">Python</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="60" style="width:0%"></div></div>
+        <div class="skill-pct">60%</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">JS</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="55" style="width:0%"></div></div>
+        <div class="skill-pct">55%</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">HTML</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="40" style="width:0%"></div></div>
+        <div class="skill-pct">40%</div>
       </div>
     </div>
   </section>
@@ -228,25 +330,29 @@
   <section class="contact" id="contact">
     <div class="reveal">
       <div class="section-label">Contact</div>
-      <h2 class="contact-heading">Let's<br>Build<br>Something<br><span class="green">Together.</span></h2>
+      <h2 class="contact-heading">Let's<br>Get In<br><span class="green">Touch.</span></h2>
     </div>
-    <div class="contact-form reveal">
-      <input class="form-field" type="text" placeholder="Your Name" />
-      <input class="form-field" type="email" placeholder="Email Address" />
-      <input class="form-field" type="text" placeholder="Project Type (3D / UI / Environment)" />
-      <textarea class="form-field" placeholder="Tell me about your project…"></textarea>
-      <button class="form-submit">Send Message →</button>
-    </div>
+    <form class="contact-form reveal" action="https://formspree.io/f/xpqonnep" method="POST">
+      <input class="form-field" type="text" name="name" placeholder="Your Name" required />
+      <input class="form-field" type="email" name="email" placeholder="Email Address" required />
+      <input class="form-field" type="text" name="project_type" placeholder="Project Type (3D / UI / Environment)" />
+      <textarea class="form-field" name="message" placeholder="Tell me about your project…" required></textarea>
+      <button type="submit" class="form-submit">Send Message →</button>
+    </form>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-copy">© 2025 J. Doe — All Rights Reserved</div>
+    <div class="footer-copy">© 2026 T.Tatar — All Rights Reserved</div>
     <div class="footer-socials">
-      <a href="#">Twitter</a>
-      <a href="#">Dribbble</a>
-      <a href="#">ArtStation</a>
-      <a href="#">LinkedIn</a>
+      <a href="https://github.com/Shojine" target="_blank" rel="noopener">
+        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/trinten-tatar-a149b521a/" target="_blank" rel="noopener">
+        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
     </div>
   </footer>
 
