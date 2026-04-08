@@ -767,6 +767,16 @@
       z-index: 0;
     }
 
+    #modalIframeContainer {
+      display: none;
+    }
+    #modalIframe {
+      width: 100%;
+      height: 420px;
+      display: block;
+      border: none;
+    }
+
     #modalVideoContainer {
       display: none;
     }

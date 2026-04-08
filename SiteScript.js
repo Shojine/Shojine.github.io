@@ -138,18 +138,30 @@
 
         const videoContainer = document.getElementById('modalVideoContainer');
         const imageContainer = document.getElementById('modalImageContainer');
+        const iframeContainer = document.getElementById('modalIframeContainer');
         const video = document.getElementById('modalVideo');
         const image = document.getElementById('modalImage');
+        const iframe = document.getElementById('modalIframe');
 
-        if (videoSrc) {
+        if (videoSrc && videoSrc.includes('drive.google.com')) {
+          // Extract file ID and build embed URL
+          const match = videoSrc.match(/\/d\/([^/]+)/);
+          const embedUrl = match ? `https://drive.google.com/file/d/${match[1]}/preview` : videoSrc;
+          iframe.src = embedUrl;
+          iframeContainer.style.display = 'block';
+          videoContainer.style.display = 'none';
+          imageContainer.style.display = 'none';
+        } else if (videoSrc) {
           document.getElementById('modalVideoSrc').src = videoSrc;
-          video.load(); // Reload video
+          video.load();
           videoContainer.style.display = 'block';
+          iframeContainer.style.display = 'none';
           imageContainer.style.display = 'none';
         } else {
           image.src = imageSrc;
           imageContainer.style.display = 'block';
           videoContainer.style.display = 'none';
+          iframeContainer.style.display = 'none';
         }
 
         document.getElementById('projectModal').classList.add('open');
@@ -161,4 +173,5 @@
       const video = document.getElementById('modalVideo');
       video.pause();
       video.currentTime = 0;
+      document.getElementById('modalIframe').src = '';
     }
