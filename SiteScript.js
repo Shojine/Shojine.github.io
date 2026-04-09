@@ -8,10 +8,12 @@
       heroBg.style.opacity = 0.8 - (progress * 0.78); // fades from 0.5 down to ~0.02
     });
 
-// Cursor
+// Cursor — skip entirely on touch devices
+    const isTouchDevice = window.matchMedia('(hover: none)').matches;
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
+    if (!isTouchDevice) {
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
     function animateCursor() {
       cursor.style.left = mx - 5 + 'px';
@@ -36,6 +38,7 @@
         ring.style.marginLeft = '0'; ring.style.marginTop = '0';
       });
     });
+    } // end isTouchDevice check
 
     // Scroll reveal
     const observer = new IntersectionObserver(entries => {
