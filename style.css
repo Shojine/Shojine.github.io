@@ -852,21 +852,58 @@
 
     /* Responsive */
     @media (max-width: 768px) {
+      /* Hide custom cursor on touch devices */
+      .cursor, .cursor-ring { display: none; }
+      body { cursor: auto; }
+      a, button { cursor: pointer; }
+
+      /* Nav */
       nav { padding: 20px 24px; }
       .nav-links { display: none; }
-      .hero { padding: 0 24px 60px; }
+
+      /* Hero */
+      .hero { padding: 120px 24px 60px; }
+      .hero-title { font-size: clamp(48px, 14vw, 80px); }
       .hero-sub { flex-direction: column; align-items: flex-start; gap: 28px; }
+      .hero-desc { font-size: 13px; }
+      .hero-scroll { display: none; }
+
+      /* About */
       .about { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
+      .about-stats { grid-template-columns: 1fr 1fr; gap: 2px; }
+
+      /* Portfolio */
       .portfolio { padding: 60px 24px 100px; }
       .portfolio-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .filter-tabs { flex-wrap: wrap; gap: 8px; }
       .portfolio-grid { grid-template-columns: 1fr; }
       .project-card:nth-child(n) { grid-column: span 1; grid-row: span 1; }
-      .project-card:nth-child(1) .card-inner { min-height: 280px; }
-      .skills { grid-template-columns: 1fr; padding: 80px 24px; }
+      .card-inner { min-height: 260px; }
+      /* Always show overlay text on mobile (no hover) */
+      .card-overlay { transform: none; }
+      .project-card:hover .card-overlay { transform: none; }
+
+      /* Skills */
+      .skills { grid-template-columns: 1fr; padding: 80px 24px; gap: 40px; }
+      .skills-heading { position: static; font-size: 32px; }
       .skills-list { grid-template-columns: 1fr; }
-      .contact { grid-template-columns: 1fr; padding: 80px 24px; }
-      footer { flex-direction: column; gap: 20px; padding: 32px 24px; }
-      #projectModal .modal { max-height: 95vh; }
-      .pm-header { padding: 24px 24px 20px; }
-      .pm-body { padding: 20px 24px 28px; }
+      .skill-item { padding: 20px 24px; }
+
+      /* Contact */
+      .contact { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
+      .contact-heading { font-size: clamp(40px, 12vw, 64px); }
+      .contact-form { gap: 12px; }
+
+      /* Footer */
+      footer { flex-direction: column; gap: 20px; padding: 32px 24px; text-align: center; }
+      .footer-socials { justify-content: center; flex-wrap: wrap; }
+
+      /* Project modal */
+      #projectModal .modal { max-height: 95vh; border-radius: 0; }
+      .pm-header { padding: 20px 20px 16px; flex-direction: column; align-items: flex-start; gap: 16px; }
+      .pm-close { align-self: flex-end; }
+      #modalIframe, #modalVideo { height: 220px; }
+      #modalImage { max-height: 260px; }
+      .pm-body { padding: 16px 20px 24px; }
+      .pm-footer-bar { flex-direction: column; align-items: flex-start; gap: 16px; }
     }
