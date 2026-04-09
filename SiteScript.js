@@ -1,5 +1,14 @@
 // edit file
-// Cursor 
+
+    // Background dim on scroll
+    const heroBg = document.querySelector('.hero-bg');
+    window.addEventListener('scroll', () => {
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const progress = window.scrollY / maxScroll;
+      heroBg.style.opacity = 0.8 - (progress * 0.78); // fades from 0.5 down to ~0.02
+    });
+
+// Cursor
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
