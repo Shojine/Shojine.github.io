@@ -47,17 +47,25 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Skill bars
-    const skillObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
-            bar.style.width = bar.dataset.width + '%';
-          });
-        }
-      });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.skills-list').forEach(el => skillObserver.observe(el));
+    // Skill ratings
+    const labels = ['', 'Novice', 'Advanced Beginner', 'Intermediate', 'Proficient', 'Expert'];
+    document.querySelectorAll('.skill-item').forEach(item => {
+      const ratingEl = item.querySelector('.skill-rating');
+      if (!ratingEl) return;
+      const rating = parseInt(ratingEl.dataset.rating);
+      const pipContainer = document.createElement('div');
+      pipContainer.className = 'skill-pips';
+      for (let i = 1; i <= 5; i++) {
+        const pip = document.createElement('div');
+        pip.className = 'skill-pip' + (i <= rating ? ' filled' : '');
+        pipContainer.appendChild(pip);
+      }
+      const labelEl = document.createElement('div');
+      labelEl.className = 'skill-label';
+      labelEl.textContent = labels[rating] || '';
+      ratingEl.replaceWith(pipContainer);
+      item.appendChild(labelEl);
+    });
 
     // Filter
     function filterProjects(cat, btn) {

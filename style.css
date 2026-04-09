@@ -526,14 +526,15 @@
     }
     .skill-item:hover { background: var(--gray-mid); }
     .skill-name { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
-    .skill-bar-track { height: 2px; background: rgba(255,255,255,0.08); position: relative; }
-    .skill-bar-fill {
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      background: linear-gradient(to right, var(--green), var(--green-bright));
-      transition: width 1.2s cubic-bezier(0.25,0.1,0.25,1);
+    .skill-pips { display: flex; gap: 6px; align-items: center; }
+    .skill-pip {
+      width: 28px; height: 4px; border-radius: 2px;
+      background: rgba(255,255,255,0.1);
+      transition: background 0.4s ease, transform 0.3s ease;
     }
-    .skill-pct { font-family: var(--font-mono); font-size: 11px; color: var(--muted); align-self: flex-end; }
+    .skill-pip.filled { background: var(--green-bright); }
+    .skill-item:hover .skill-pip.filled { background: var(--green-bright); filter: brightness(1.2); }
+    .skill-label { font-family: var(--font-mono); font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
 
     /* CONTACT */
     .contact {
