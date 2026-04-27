@@ -167,6 +167,7 @@
         const title = card.querySelector('.card-title').textContent;
         const desc = card.querySelector('.card-desc').textContent;
         const videoSrc = card.dataset.video;
+        const gameSrc = card.dataset.game;
         const imageSrc = card.querySelector('.card-visual').src;
 
         const linkHref = card.querySelector('.card-link')?.href || '#';
@@ -186,7 +187,12 @@
         const image = document.getElementById('modalImage');
         const iframe = document.getElementById('modalIframe');
 
-        if (videoSrc && videoSrc.includes('drive.google.com')) {
+        if (gameSrc) {
+          iframe.src = gameSrc;
+          iframeContainer.style.display = 'block';
+          videoContainer.style.display = 'none';
+          imageContainer.style.display = 'none';
+        } else if (videoSrc && videoSrc.includes('drive.google.com')) {
           // Extract file ID and build embed URL
           const match = videoSrc.match(/\/d\/([^/]+)/);
           const embedUrl = match ? `https://drive.google.com/file/d/${match[1]}/preview` : videoSrc;
