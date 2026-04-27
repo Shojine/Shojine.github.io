@@ -187,13 +187,15 @@
         const image = document.getElementById('modalImage');
         const iframe = document.getElementById('modalIframe');
 
+        const modal = document.querySelector('#projectModal .modal');
         if (gameSrc) {
           iframe.src = gameSrc;
           iframeContainer.style.display = 'block';
           videoContainer.style.display = 'none';
           imageContainer.style.display = 'none';
+          modal.classList.add('has-game');
         } else if (videoSrc && videoSrc.includes('drive.google.com')) {
-          // Extract file ID and build embed URL
+          modal.classList.remove('has-game');
           const match = videoSrc.match(/\/d\/([^/]+)/);
           const embedUrl = match ? `https://drive.google.com/file/d/${match[1]}/preview` : videoSrc;
           iframe.src = embedUrl;
@@ -201,12 +203,14 @@
           videoContainer.style.display = 'none';
           imageContainer.style.display = 'none';
         } else if (videoSrc) {
+          modal.classList.remove('has-game');
           document.getElementById('modalVideoSrc').src = videoSrc;
           video.load();
           videoContainer.style.display = 'block';
           iframeContainer.style.display = 'none';
           imageContainer.style.display = 'none';
         } else {
+          modal.classList.remove('has-game');
           image.src = imageSrc;
           imageContainer.style.display = 'block';
           videoContainer.style.display = 'none';
@@ -223,4 +227,5 @@
       video.pause();
       video.currentTime = 0;
       document.getElementById('modalIframe').src = '';
+      document.querySelector('#projectModal .modal').classList.remove('has-game');
     }
