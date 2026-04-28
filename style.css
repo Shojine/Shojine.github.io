@@ -833,7 +833,8 @@
       width: min(1000px, 96vw);
     }
     #projectModal .modal.has-game #modalIframe {
-      height: 640px;
+      aspect-ratio: 16/9;
+      height: auto;
     }
 
     #modalVideoContainer {
