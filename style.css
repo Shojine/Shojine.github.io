@@ -331,19 +331,20 @@
       cursor: none;
       grid-column: span 4;
     }
-    .project-card:nth-child(1) { grid-column: span 7; grid-row: span 2; }
+    .project-card:nth-child(1) { grid-column: span 7; }
     .project-card:nth-child(2) { grid-column: span 5; }
     .project-card:nth-child(3) { grid-column: span 5; }
-    .project-card:nth-child(4) { grid-column: span 4; }
-    .project-card:nth-child(5) { grid-column: span 4; }
-    .project-card:nth-child(6) { grid-column: span 4; }
+    .project-card:nth-child(4) { grid-column: span 7; }
+    .project-card:nth-child(5) { grid-column: span 7; }
+    .project-card:nth-child(6) { grid-column: span 5; }
 
     .card-inner {
-      aspect-ratio: 4/3;
       position: relative;
       overflow: hidden;
+      height: 100%;
+      min-height: 300px;
     }
-    .project-card:nth-child(1) .card-inner { aspect-ratio: auto; height: 100%; min-height: 480px; }
+    .project-card:nth-child(1) .card-inner { min-height: 340px; }
 
     .card-visual {
       width: 100%; height: 100%;
@@ -760,6 +761,25 @@
     }
     .pm-close:hover { border-color: var(--green-bright); color: var(--green-bright); }
 
+    .media-nav {
+      display: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(0, 183, 61, 0.3);
+      color: var(--white);
+      cursor: none;
+      font-size: 20px;
+      line-height: 1;
+      padding: 10px 16px;
+      z-index: 10;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .media-nav:hover { background: rgba(0, 183, 61, 0.18); border-color: var(--green-bright); }
+    .media-nav-prev { left: 12px; }
+    .media-nav-next { right: 12px; }
+
     /* Media area */
     .pm-media {
       position: relative;
@@ -796,11 +816,8 @@
     }
     #modalImage {
       width: 100%;
-      max-height: 520px;
-      object-fit: contain;
+      height: auto;
       display: block;
-      position: relative;
-      z-index: 0;
     }
 
     #modalIframeContainer {
@@ -931,7 +948,7 @@
       .pm-header { padding: 20px 20px 16px; flex-direction: column; align-items: flex-start; gap: 16px; }
       .pm-close { align-self: flex-end; }
       #modalIframe, #modalVideo { height: 220px; }
-      #modalImage { max-height: 340px; }
+      #modalImage { width: 100%; height: auto; }
       .pm-body { padding: 16px 20px 24px; }
       .pm-footer-bar { flex-direction: column; align-items: flex-start; gap: 16px; }
     }

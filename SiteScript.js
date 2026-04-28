@@ -161,6 +161,49 @@
     });
 
     // Project modal
+    let modalMediaPages = [];
+    let modalCurrentPage = 0;
+
+    function showMediaPage(page) {
+      modalCurrentPage = page;
+      const videoContainer = document.getElementById('modalVideoContainer');
+      const imageContainer = document.getElementById('modalImageContainer');
+      const iframeContainer = document.getElementById('modalIframeContainer');
+      const image = document.getElementById('modalImage');
+      const iframe = document.getElementById('modalIframe');
+      const prevBtn = document.getElementById('mediaPrev');
+      const nextBtn = document.getElementById('mediaNext');
+
+      const current = modalMediaPages[page];
+      if (current.type === 'image') {
+        image.src = current.src;
+        imageContainer.style.display = 'block';
+        iframeContainer.style.display = 'none';
+        videoContainer.style.display = 'none';
+        iframe.src = '';
+      } else if (current.type === 'iframe') {
+        iframe.src = current.src;
+        iframeContainer.style.display = 'block';
+        imageContainer.style.display = 'none';
+        videoContainer.style.display = 'none';
+      } else if (current.type === 'video') {
+        document.getElementById('modalVideoSrc').src = current.src;
+        document.getElementById('modalVideo').load();
+        videoContainer.style.display = 'block';
+        imageContainer.style.display = 'none';
+        iframeContainer.style.display = 'none';
+        iframe.src = '';
+      }
+
+      prevBtn.style.display = page > 0 ? 'block' : 'none';
+      nextBtn.style.display = page < modalMediaPages.length - 1 ? 'block' : 'none';
+    }
+
+    function navigateMedia(dir) {
+      const next = modalCurrentPage + dir;
+      if (next >= 0 && next < modalMediaPages.length) showMediaPage(next);
+    }
+
     document.querySelectorAll('.project-card').forEach(card => {
       card.addEventListener('click', (e) => {
         if (e.target.closest('.card-link')) return;
@@ -180,43 +223,31 @@
         modalLink.href = linkHref;
         modalLink.style.display = (linkHref && linkHref !== window.location.href && !linkHref.endsWith('#')) ? '' : 'none';
 
-        const videoContainer = document.getElementById('modalVideoContainer');
-        const imageContainer = document.getElementById('modalImageContainer');
-        const iframeContainer = document.getElementById('modalIframeContainer');
-        const video = document.getElementById('modalVideo');
-        const image = document.getElementById('modalImage');
-        const iframe = document.getElementById('modalIframe');
-
         const modal = document.querySelector('#projectModal .modal');
+
         if (gameSrc) {
-          iframe.src = gameSrc;
-          iframeContainer.style.display = 'block';
-          videoContainer.style.display = 'none';
-          imageContainer.style.display = 'none';
           modal.classList.add('has-game');
+          modalMediaPages = [{ type: 'iframe', src: gameSrc }];
         } else if (videoSrc && videoSrc.includes('drive.google.com')) {
           modal.classList.remove('has-game');
           const match = videoSrc.match(/\/d\/([^/]+)/);
           const embedUrl = match ? `https://drive.google.com/file/d/${match[1]}/preview` : videoSrc;
-          iframe.src = embedUrl;
-          iframeContainer.style.display = 'block';
-          videoContainer.style.display = 'none';
-          imageContainer.style.display = 'none';
+          modalMediaPages = [
+            { type: 'image', src: imageSrc },
+            { type: 'iframe', src: embedUrl }
+          ];
         } else if (videoSrc) {
           modal.classList.remove('has-game');
-          document.getElementById('modalVideoSrc').src = videoSrc;
-          video.load();
-          videoContainer.style.display = 'block';
-          iframeContainer.style.display = 'none';
-          imageContainer.style.display = 'none';
+          modalMediaPages = [
+            { type: 'image', src: imageSrc },
+            { type: 'video', src: videoSrc }
+          ];
         } else {
           modal.classList.remove('has-game');
-          image.src = imageSrc;
-          imageContainer.style.display = 'block';
-          videoContainer.style.display = 'none';
-          iframeContainer.style.display = 'none';
+          modalMediaPages = [{ type: 'image', src: imageSrc }];
         }
 
+        showMediaPage(0);
         document.getElementById('projectModal').classList.add('open');
       });
     });
@@ -228,4 +259,8 @@
       video.currentTime = 0;
       document.getElementById('modalIframe').src = '';
       document.querySelector('#projectModal .modal').classList.remove('has-game');
+      document.getElementById('mediaPrev').style.display = 'none';
+      document.getElementById('mediaNext').style.display = 'none';
+      modalMediaPages = [];
+      modalCurrentPage = 0;
     }

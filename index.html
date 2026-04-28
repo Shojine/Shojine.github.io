@@ -95,8 +95,9 @@
       </div>
     </div>
 
+    
     <div class="portfolio-grid" id="portfolioGrid">
-
+      
       <div class="project-card" data-category="game" data-video="https://drive.google.com/file/d/1Zmrxe9kotv0E2YUuksH14N21C0z_I60y/view?usp=sharing" data-tag="Environment · Game">
         <div class="card-inner">
           <img class="card-visual" src="Images/LostMemories.png" alt="Screenshot of Lost Memories game environment" loading="lazy">
@@ -105,6 +106,18 @@
             <div class="card-title">Lost Memories</div>
             <div class="card-desc">A third-person narrative in which you play as Jess Mable. She returns to her old hometown of Point Hope to uncover her family's strange disappearance.</div>
             <a href="#" class="card-link">View Project →</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card" data-category="game" data-tag="Game" data-game="WebGame/index.html">
+        <div class="card-inner">
+          <img class="card-visual" src="Images/Insomnia.png" alt="Screenshot of Insomnia game environment" loading="lazy">
+          <div class="card-overlay">
+            <div class="card-tag">Game</div>
+            <div class="card-title">Insomnia</div>
+            <div class="card-desc">Awake in your house to find all doors locked. Find your way out, before you find out what broke in.</div>
+            <a href="https://github.com/Shojine/GAT315-Unity-Physics" class="card-link">View Project →</a>
           </div>
         </div>
       </div>
@@ -120,6 +133,7 @@
           </div>
         </div>
       </div>
+      
 
       <div class="project-card" data-category="3d" data-tag="3D · Asset">
         <div class="card-inner">
@@ -229,17 +243,6 @@
         </div>
       </div>
 
-      <div class="project-card" data-category="game" data-tag="Game" data-game="WebGame/index.html">
-        <div class="card-inner">
-          <img class="card-visual" src="Images/Insomnia.png" alt="Screenshot of Insomnia game environment" loading="lazy">
-          <div class="card-overlay">
-            <div class="card-tag">Game</div>
-            <div class="card-title">Insomnia</div>
-            <div class="card-desc">Awake in your house to find all doors locked. Find your way out, before you find out what broke in.</div>
-            <a href="https://github.com/Shojine/GAT315-Unity-Physics" class="card-link">View Project →</a>
-          </div>
-        </div>
-      </div>
 
 
 
@@ -379,6 +382,8 @@
 
       <!-- Media -->
       <div class="pm-media">
+        <button class="media-nav media-nav-prev" id="mediaPrev" onclick="navigateMedia(-1)">&#8592;</button>
+        <button class="media-nav media-nav-next" id="mediaNext" onclick="navigateMedia(1)">&#8594;</button>
         <div id="modalImageContainer">
           <img id="modalImage" src="" alt="Project image">
         </div>
